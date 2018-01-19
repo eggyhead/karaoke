@@ -4,6 +4,10 @@ import {Provider} from 'react-redux'
 import store from './store'
 import Routes from './routes'
 
+// Napster.init({
+//   consumerKey: process.env.NAPSTER_API_KEY
+// })
+
 // establishes socket connection
 import './socket'
 
