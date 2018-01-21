@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter, Link, Router, Route, Switch} from 'react-router-dom'
 import {logout} from '../store'
-import {SongPlayer} from './index'
+import {ChooseSong, CategoryForm } from './index'
 
 /**
  * COMPONENT
@@ -12,13 +12,15 @@ import {SongPlayer} from './index'
  *  rendered out by the component's `children`.
  */
 const Main = (props) => {
-  // const {children, handleClick, isLoggedIn} = props
 
   return (
     <div>
-    
-      <SongPlayer />
-
+      <Switch>
+        <div className="sub-content-wrapper">
+          <Route exact path="/" component= {CategoryForm} />
+          <Route path="/songs" component={ChooseSong} />
+        </div>
+      </Switch>
     </div>
   )
 }
@@ -55,19 +57,3 @@ Main.propTypes = {
 }
 
 
-/**
- *   <h1>BOILERMAKER</h1>
-      <nav>
-        {
-          isLoggedIn
-            ? <div>
-              <Link to="/home">Home</Link>
-              <a href="#" onClick={handleClick}>Logout</a>
-            </div>
-            : <div>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
-            </div>
-        }
-      </nav>
- */

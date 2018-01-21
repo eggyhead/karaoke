@@ -11,6 +11,8 @@ const sessionStore = new SequelizeStore({db})
 const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
+const admin = require('firebase-admin')
+const serviceAccount = require('../serviceKey.json')
 module.exports = app
 
 /**
@@ -22,6 +24,12 @@ module.exports = app
  * Node process on process.env
  */
 if (process.env.NODE_ENV !== 'production') require('../secrets')
+
+//firebase admin initialization
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://karaoke-me.firebaseio.com/'
+})
 
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id))
