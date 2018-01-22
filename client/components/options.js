@@ -13,22 +13,23 @@ class CategoryForm extends Component {
     render(props) {
         const {handleChange, handleRandom, setSongs, songs} = this.props
         return (
-            <div>
-            <Link to="/randomSong"><button>Random Song</button></Link>
+            <div className="options-form">
+            <img src="../../Karaoke.gif"></img>
+            <Link to="/randomSong"><button id="random-song-button">Random Song</button></Link>
                 <form id="select-form">
-                    <select onChange={handleChange} name='numSingers'>
+                    <select onChange={handleChange} className='category-select' name='numSingers'>
                         {categories.numSingers && categories.numSingers.map(numOption => <option key={numOption} value={numOption}>{numOption}</option>)}  
                     </select>
         
-                    <select onChange={handleChange} name='songGenre'>
+                    <select onChange={handleChange} className='category-select' name='songGenre'>
                         {categories.songGenre && categories.songGenre.map(songGenre => <option key={songGenre} name='songGenre' value={songGenre}>{songGenre}</option>)}
                     </select>
         
-                    <select onChange={handleChange} name='songType'>
+                    <select onChange={handleChange} className='category-select' name='songType'>
                         {categories.songType && categories.songType.map(songType => <option key={songType} name='songType' value={songType}>{songType}</option>)}
                     </select>
                 </form>
-                 <Link to="/songs"><button id="song-button"><img src="../../microphone.png"></img></button></Link>
+                 <Link to="/songs"><button id="song-button"><img src="../../microphone.png" id="button-image"></img></button></Link>
             </div>
         )
     }

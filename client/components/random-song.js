@@ -20,7 +20,8 @@ class RandomSong extends Component {
     console.log('randomSong ', singleSong)
   
     return (
-        <div> 
+        <div className="song-container"> 
+          <div><img src="animated-purple-disco-ball3.gif"></img></div>
             <label>{singleSong && singleSong.title} by {singleSong && singleSong.artist}</label>
                 <video width="320" height="240" controls>
                   <source src={singleSong && singleSong.mp4} type="video/mp4"/>

@@ -1,16 +1,32 @@
 *{
   box-sizing: border-box;
+
 }
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 body {
   font-family: 'Shrikhand', cursive;
   font-family: 'Josefin Sans', sans-serif;
   font-family: 'Saira Condensed', sans-serif;
 
+}
+
+.options-form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.song-container {
+  display: flex;
+  flex-direction: column;
+}
+.multiple-songs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 a {
@@ -33,8 +49,9 @@ form div {
   display: inline-block;
 }
 
-#song-button {
-  height: 20%;
+#button-image {
+  height: 30%;
+  width: 30%;
   background-position: center;
   background-repeat: no-repeat;
 }

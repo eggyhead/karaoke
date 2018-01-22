@@ -29,12 +29,13 @@ class SongChoices extends Component {
     
         console.log(songs, 'filteredSongs')
         return (
-          <div>
-          
+          <div className="song-container">
+          <div><img src="animated-purple-disco-ball3.gif"></img></div>
           {(!songs.length) ? <span>More songs to come soon!</span> :
-              songs && songs.map(song => {
+            <div className="multiple-songs">
+              {songs && songs.map(song => {
                 return (
-                  <div key={song}>
+                  <div key={song.id}>
                     <label id="song-title">{song.title} by {song.artist}</label>
                     <video width="320" height="240" controls>
                       <source src={song.mp4} type="video/mp4"/>
@@ -43,10 +44,12 @@ class SongChoices extends Component {
                  </div>
                 )
                 
-              })
+              })}
+              </div>
               
             }
             <Link to="/"><button>Try again</button></Link>
+            <div><img src="disco-dance-floor-lights-animation.gif"></img></div>
           </div>
         ) 
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link, Router, Route, Switch} from 'react-router-dom'
 import {logout, getAllSongs, clearSongType, clearSongGenre, clearNumSingers, getRandomSong} from '../store'
-import {ChooseSong, CategoryForm, RandomSong} from './index'
+import {ChooseSong, CategoryForm, RandomSong, LoadingPage} from './index'
 
 /**
  * COMPONENT
@@ -22,7 +22,6 @@ class Main extends Component  {
   render(props) {
     return (
       <div className="container">
-        <img src="../../Karaoke.gif"></img>
         <Switch>
           <div className="sub-content-wrapper">
             <Route exact path="/" component= {CategoryForm} />
