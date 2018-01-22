@@ -5,7 +5,8 @@ export default class SoundWave extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            record: false
+            record: false,
+            audio: {}
         }
     }
     componentDidMount() {
@@ -14,15 +15,19 @@ export default class SoundWave extends Component {
         })
     }
 
-    stopRecording = () => {
+    stopRecording = (recordedBlob) => {
         console.log('recording stopped')
         this.setState({
-            record: false
+            record: false,
+            audio: recordedBlob
         })
+        console.log('state ', this.state)
+        console.dir(recordedBlob)
     }
 
     onStop(recordedBlob) {
         console.log('recordedBlob is:  ', recordedBlob);
+        
     }
 
     render() {

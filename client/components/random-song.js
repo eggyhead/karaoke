@@ -24,12 +24,15 @@ class RandomSong extends Component {
         <div className="song-container"> 
           <div className="disco-ball"><img src="animated-purple-disco-ball3.gif"></img></div>
             <label>{singleSong && singleSong.title} by {singleSong && singleSong.artist}</label>
+              <div className="video-div">
                 <video width="320" height="240" controls>
                   <source src={singleSong && singleSong.mp4} type="video/mp4"/>
                         Your song
                 </video>
+              </div>
           <SoundWave />
-        <Link to="/"><button>Try again</button></Link>
+          <Link to="/"><button>Try again</button></Link>
+          <div id="dance-floor"><img src="disco-dance-floor-lights-animation.gif"></img></div>
       </div>
     ) 
   }
