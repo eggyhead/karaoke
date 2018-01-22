@@ -1,16 +1,19 @@
 *{
   box-sizing: border-box;
+  color: white;
 
 }
 .container {
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 body {
   font-family: 'Shrikhand', cursive;
   font-family: 'Josefin Sans', sans-serif;
   font-family: 'Saira Condensed', sans-serif;
-
+  font-size: 30px;
+  
 }
 
 .options-form {
@@ -22,6 +25,7 @@ body {
 .song-container {
   display: flex;
   flex-direction: column;
+  align-self: center;
 }
 .multiple-songs {
   display: flex;
@@ -47,6 +51,23 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.button {
+  background-color: white; 
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#song-button {
+  background-color: white;
+  height: 50%;
+  width: 30%;
+  border-radius: 50%;
 }
 
 #button-image {
