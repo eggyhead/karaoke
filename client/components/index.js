@@ -8,4 +8,5 @@ export {default as UserHome} from './user-home'
 export {Login, Signup} from './auth-form'
 export {default as ChooseSong} from './song-choices'
 export {default as CategoryForm} from './options'
+export {default as RandomSong} from './random-song'
 

@@ -4,7 +4,6 @@
 /**
  * ACTION TYPES
  */
-
 const SET_SONG_TYPE = 'SET_SONG_TYPE'
 const CLEAR_SONG_TYPE = 'CLEAR_SONG_TYPE'
 /**

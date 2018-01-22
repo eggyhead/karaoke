@@ -1,13 +1,26 @@
+*{
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 body {
-  font-family: sans-serif;
+  font-family: 'Shrikhand', cursive;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
+
 }
 
 a {
   text-decoration: none;
 }
 
+
 label {
   display: block;
+  font-family: 'Shrikhand', cursive;
 }
 
 nav a {
@@ -18,4 +31,10 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+#song-button {
+  height: 20%;
+  background-position: center;
+  background-repeat: no-repeat;
 }

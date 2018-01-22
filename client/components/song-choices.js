@@ -11,22 +11,19 @@ class SongChoices extends Component {
     super(props)
   }
 
-  componentWillUnmount(props) {
-    this.props.clearData()
-  }
   render(props) {
-    let {songs, numSingers, songGenre, songType, voiceType} = this.props
+    let {songs, numSingers, songGenre, songType} = this.props
       console.log('songs pre-filter', songs)
+     
       songs = songs.filter(song => { 
-          // console.log('song in filter', song)
-          // console.log('song genre', songGenre)
-          // console.log('song tags at 2', song.tags[2])
-    
+        console.log('song tags', song.tags)
+        console.log('numSingers', numSingers)
+        console.log('matches genre', song.tags.includes(songGenre))
+        console.log('matches type', song.tags.includes(songType))
         return (
-            song.tags[0].toLowerCase() === numSingers.toLowerCase() &&
-            song.tags[1].toLowerCase() === voiceType.toLowerCase() &&
-            song.tags[2].toLowerCase() === songGenre.toLowerCase() &&
-            song.tags[3].toLowerCase() === songType.toLowerCase() 
+            song.tags.includes(numSingers)  &&
+            song.tags.includes(songGenre) &&
+            song.tags.includes(songType)
         ) 
       })
     
@@ -34,13 +31,20 @@ class SongChoices extends Component {
         return (
           <div>
           
-          {(!songs.length) ? <span>There are no songs that match your criteria</span> :
-              <div>
-                  <video width="320" height="240" controls>
-                    <source src={songs && songs[0].mp4} type="video/mp4"/>
-                          Your song
-                  </video>
-              </div>
+          {(!songs.length) ? <span>More songs to come soon!</span> :
+              songs && songs.map(song => {
+                return (
+                  <div key={song}>
+                    <label id="song-title">{song.title} by {song.artist}</label>
+                    <video width="320" height="240" controls>
+                      <source src={song.mp4} type="video/mp4"/>
+                            Your song
+                    </video>
+                 </div>
+                )
+                
+              })
+              
             }
             <Link to="/"><button>Try again</button></Link>
           </div>
@@ -54,24 +58,15 @@ class SongChoices extends Component {
 /**
  * CONTAINER
  */
-const mapState = ({songs, numSingers, songGenre, songType, voiceType}) => {
+const mapState = ({songs, numSingers, songGenre, songType}) => {
   return {
     songs: songs,
     numSingers: numSingers,
-    songGenre: songGenre,
-    songType: songType,
-    voiceType: voiceType 
-  }
-}
-const mapDispatch = (dispatch) => {
-  return {
-    clearData() {
-      dispatch(clearNumSingers())
-      dispatch(clearSongGenre())
-      dispatch(clearSongType())
-    }
+    songGenre: songGenre, 
+    songType: songType
   }
 }
 
 
-export default connect(mapState, mapDispatch)(SongChoices)
+
+export default connect(mapState)(SongChoices)
