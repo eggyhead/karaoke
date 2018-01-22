@@ -42,7 +42,9 @@ class SongChoices extends Component {
               </div>
               
             }
+            <div>Play!
             <SoundWave />
+            </div>
             <Link to="/"><button>Try again</button></Link>
             <div><img src="disco-dance-floor-lights-animation.gif"></img></div>
           </div>

@@ -8,9 +8,7 @@ export default class SoundWave extends Component {
             record: false
         }
     }
-
-    startRecording = () => {
-        console.log('recording started')
+    componentDidMount() {
         this.setState({
             record: true
         })
@@ -36,8 +34,7 @@ export default class SoundWave extends Component {
                     onStop={this.onStop}
                     strokeColor="#000000"
                     backgroudColor="#FF4081" />
-                <button onClick={this.startRecording} type="button">Start</button>
-                <button onClick={this.stopRecording} type="button">Stop</button>
+                <button onClick={this.stopRecording} type="button">Stop Soundwave</button>
             </div>
         )
     }

@@ -14,7 +14,7 @@ class CategoryForm extends Component {
         const {handleChange, handleRandom, setSongs, songs} = this.props
         return (
             <div className="options-form">
-            <img src="../../Karaoke.gif"></img>
+            <img id="landing-page-img" src="../../Karaoke.gif"></img>
             <div className="row">
                 <div className="col">
                     <Link to="/randomSong"><button id="random-song-button">Random Song</button></Link>

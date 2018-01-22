@@ -53,6 +53,10 @@ form div {
   padding: 10px;
 }
 
+#landing-page-img{
+  width: 100%;
+}
+
 .button {
   background-color: black; 
   border: none;
