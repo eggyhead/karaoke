@@ -20,6 +20,7 @@ const allSongs = [
  */
 
 const GET_RANDOM_SONG = 'GET_RANDOM_SONG'
+const SET_SINGLE_SONG = 'SET_SINGLE_SONG'
 /**
  * INITIAL STATE
  */
@@ -30,7 +31,7 @@ const defaultRandomSong = allSongs[Math.floor(Math.random() * allSongs.length)]
  */
 
 export const getRandomSong = song => ({type: GET_RANDOM_SONG, song})
-
+export const setSingleSong = song => ({type: SET_SINGLE_SONG, song})
 /**
  * THUNK CREATORS
  */
@@ -44,6 +45,8 @@ export default function(state = defaultRandomSong, action) {
     switch(action.type) {
         case GET_RANDOM_SONG:
             return allSongs[Math.floor(Math.random() * allSongs.length)]
+        case SET_SINGLE_SONG:
+            return action.song
         default: 
             return state;
     }

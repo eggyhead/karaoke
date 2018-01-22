@@ -15,19 +15,30 @@ class CategoryForm extends Component {
         return (
             <div className="options-form">
             <img src="../../Karaoke.gif"></img>
-            <Link to="/randomSong"><button id="random-song-button">Random Song</button></Link>
+            <div className="row">
+                <div className="col">
+                    <Link to="/randomSong"><button id="random-song-button">Random Song</button></Link>
+                </div>
+            </div>
                 <form id="select-form">
-                    <select onChange={handleChange} className='category-select' name='numSingers'>
-                        {categories.numSingers && categories.numSingers.map(numOption => <option key={numOption} value={numOption}>{numOption}</option>)}  
-                    </select>
-        
-                    <select onChange={handleChange} className='category-select' name='songGenre'>
-                        {categories.songGenre && categories.songGenre.map(songGenre => <option key={songGenre} name='songGenre' value={songGenre}>{songGenre}</option>)}
-                    </select>
-        
-                    <select onChange={handleChange} className='category-select' name='songType'>
-                        {categories.songType && categories.songType.map(songType => <option key={songType} name='songType' value={songType}>{songType}</option>)}
-                    </select>
+                    <div className="row">
+                        <div className="col">
+                            <select onChange={handleChange} className='category-select' name='numSingers'>
+                                {categories.numSingers && categories.numSingers.map(numOption => <option key={numOption} value={numOption}>{numOption}</option>)}  
+                            </select>
+                        </div>
+                    
+                        <div className="col">
+                            <select onChange={handleChange} className='category-select' name='songGenre'>
+                                {categories.songGenre && categories.songGenre.map(songGenre => <option key={songGenre} name='songGenre' value={songGenre}>{songGenre}</option>)}
+                            </select>
+                        </div>
+                        <div className="col">
+                            <select onChange={handleChange} className='category-select' name='songType'>
+                                {categories.songType && categories.songType.map(songType => <option key={songType} name='songType' value={songType}>{songType}</option>)}
+                            </select>
+                        </div>
+                    </div>
                 </form>
                  <Link to="/songs"><button id="song-button"><img src="../../microphone.png" id="button-image"></img></button></Link>
             </div>

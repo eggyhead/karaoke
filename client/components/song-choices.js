@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {clearNumSingers, clearSongType, clearSongGenre} from '../store'
+import {clearNumSingers, clearSongType, clearSongGenre, setSingleSong} from '../store'
+import {SoundWave} from '../components'
 
 /**
  * COMPONENT
@@ -16,38 +17,32 @@ class SongChoices extends Component {
       console.log('songs pre-filter', songs)
      
       songs = songs.filter(song => { 
-        console.log('song tags', song.tags)
-        console.log('numSingers', numSingers)
-        console.log('matches genre', song.tags.includes(songGenre))
-        console.log('matches type', song.tags.includes(songType))
         return (
             song.tags.includes(numSingers)  &&
             song.tags.includes(songGenre) &&
             song.tags.includes(songType)
         ) 
       })
-    
+      const song = songs[Math.floor(Math.random() * songs.length)]
         console.log(songs, 'filteredSongs')
         return (
           <div className="song-container">
-          <div><img src="animated-purple-disco-ball3.gif"></img></div>
+          <div className="disco-ball"><img src="animated-purple-disco-ball3.gif"></img></div>
           {(!songs.length) ? <span>More songs to come soon!</span> :
-            <div className="multiple-songs">
-              {songs && songs.map(song => {
-                return (
+            <div className="single-song">
                   <div key={song.id}>
-                    <label id="song-title">{song.title} by {song.artist}</label>
-                    <video width="320" height="240" controls>
-                      <source src={song.mp4} type="video/mp4"/>
-                            Your song
-                    </video>
+                    <div>
+                      <label id="song-title">{song.title} by {song.artist}</label>
+                      <video width="320" height="240" controls>
+                        <source src={song.mp4} type="video/mp4"/>
+                              Your song
+                      </video>
+                  </div>
                  </div>
-                )
-                
-              })}
               </div>
               
             }
+            <SoundWave />
             <Link to="/"><button>Try again</button></Link>
             <div><img src="disco-dance-floor-lights-animation.gif"></img></div>
           </div>
@@ -69,6 +64,15 @@ const mapState = ({songs, numSingers, songGenre, songType}) => {
     songType: songType
   }
 }
+
+// const mapDispatch = (dispatch) => {
+//   return {
+//     onItemClick (evt) {
+//       evt.preventDefault();
+//       console.log(song, 'song')
+//     }
+//   }
+// }
 
 
 

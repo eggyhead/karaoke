@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link, Router, Route, Switch} from 'react-router-dom'
 import {logout, getAllSongs, clearSongType, clearSongGenre, clearNumSingers, getRandomSong} from '../store'
-import {ChooseSong, CategoryForm, RandomSong, LoadingPage} from './index'
+import {ChooseSong, CategoryForm, RandomSong, LoadingPage, PlaySong} from './index'
 
 /**
  * COMPONENT
