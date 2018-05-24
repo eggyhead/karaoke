@@ -53,6 +53,7 @@ label, #random-song-button{
   font-size: 20px;
   text-align: center;
   background-color: black;
+  color: red;
 }
 
 nav a {
@@ -74,10 +75,25 @@ div#random-song {
   display: flex;
   justify-content: center;
 }
-
+div#header-container {
+  display: flex;
+  position: relative;
+}
 #landing-page-img{
   width: 100%;
 }
+
+#header-text{
+  font-family: 'Saira Condensed', sans-serif;
+  align-self: center;
+  position: absolute;
+  left: 70%;
+  top: 80%;
+  font-size: 50px;
+  color: white;
+}
+
+
 
 .button {
   background-color: black; 

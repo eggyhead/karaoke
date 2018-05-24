@@ -18,7 +18,10 @@ class CategoryForm extends Component {
         return (
             <div>
             <div className="options-form">
+            <div id="header-container">
             <img id="landing-page-img" src="../../Karaoke.gif"></img>
+            <div id="header-text">ME</div>
+            </div>
             <h2>Let's get started!</h2>
             <div className="row" >
                 <div className="col" id="random-song">
