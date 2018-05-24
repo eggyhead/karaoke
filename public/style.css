@@ -17,6 +17,20 @@ body {
   font-size: 30px; 
 }
 
+select {
+  /* General styling */
+height: 30px;
+width: 100px;
+border-radius: 0;
+padding-left: 10px;
+
+/* Removes the default <select> styling */
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+
+
 .song-container {
   display: flex;
   flex-direction: column;
@@ -38,6 +52,7 @@ label, #random-song-button{
   font-family: 'Shrikhand', cursive;
   font-size: 20px;
   text-align: center;
+  background-color: black;
 }
 
 nav a {
@@ -55,6 +70,10 @@ form div {
   padding: 10px;
   align-self: center;
 }
+div#random-song {
+  display: flex;
+  justify-content: center;
+}
 
 #landing-page-img{
   width: 100%;
@@ -62,6 +81,7 @@ form div {
 
 .button {
   background-color: black; 
+  color: white;
   border: none;
   padding: 15px 32px;
   text-align: center;
@@ -71,23 +91,20 @@ form div {
 }
 
 #song-button {
-  background-color: white;
-  height: 50%;
-  width: 30%;
-  border-radius: 50%;
+  height: 60px;
+  background-color: red;
+  font-size: 16px;
+  font-family: 'Saira Condensed', sans-serif;
 }
-
-#button-image {
-  height: 30%;
-  width: 30%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 #soundwave-wrapper {
   width: 100%;
 }
 
+#options-select {
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+}
 #dance-floor {
   align-self: center;
   margin: 10%;

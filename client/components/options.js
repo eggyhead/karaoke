@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {setNumSingers, setSongGenre, setSongType, setSongs} from '../store'
 import {Link} from 'react-router-dom'
-
+import history from '../history'
 /**
  * COMPONENT
  */
@@ -10,37 +10,46 @@ class CategoryForm extends Component {
     constructor(props) {
         super(props)
     }
+    handleClick(e) {
+        history.push('/songs')
+    }
     render(props) {
         const {handleChange, handleRandom, setSongs, songs} = this.props
         return (
+            <div>
             <div className="options-form">
             <img id="landing-page-img" src="../../Karaoke.gif"></img>
-            <div className="row">
-                <div className="col">
-                    <Link to="/randomSong"><button id="random-song-button">Random Song</button></Link>
+            <h2>Let's get started!</h2>
+            <div className="row" >
+                <div className="col" id="random-song">
+                    <Link to="/randomSong"><button id="random-song-button">Give me a Random Song</button></Link>
                 </div>
             </div>
                 <form id="select-form">
-                    <div className="row">
+                    <div className="row" id="options-select">
                         <div className="col">
+                            <label htmlFor="numSingers">Number of Singers</label>
                             <select onChange={handleChange} className='category-select' name='numSingers'>
                                 {categories.numSingers && categories.numSingers.map(numOption => <option key={numOption} value={numOption}>{numOption}</option>)}  
                             </select>
                         </div>
                     
                         <div className="col">
+                            <label htmlFor="songGenre">Song Genre</label>
                             <select onChange={handleChange} className='category-select' name='songGenre'>
                                 {categories.songGenre && categories.songGenre.map(songGenre => <option key={songGenre} name='songGenre' value={songGenre}>{songGenre}</option>)}
                             </select>
                         </div>
                         <div className="col">
+                            <label htmlFor="songType">Song Type</label>
                             <select onChange={handleChange} className='category-select' name='songType'>
                                 {categories.songType && categories.songType.map(songType => <option key={songType} name='songType' value={songType}>{songType}</option>)}
                             </select>
                         </div>
-                    </div>
+                        <button id="song-button" onClick={this.handleClick}>Time to sing</button>
+                    </div>     
                 </form>
-                 <Link to="/songs"><button id="song-button"><img src="../../microphone.png" id="button-image"></img></button></Link>
+            </div>    
             </div>
         )
     }
@@ -89,3 +98,4 @@ export default connect(mapState, mapDispatch)(CategoryForm)
 
 
 
+/* */
